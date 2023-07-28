@@ -1,0 +1,23 @@
+Package: easy.utils
+Type: Package
+Title: Frequently Used Functions for easy R programming
+Version: 0.0.1
+Authors@R: person(given = "Yuchen", family = "Li", 
+    email = "liyuchen_1995@outlook.com", role = c("aut", "cre"))
+Description: Some utillity functions for validation, data manipulation or color 
+    palettes. These functions can be helpful to reduce internal codes everywhere 
+    in package development.
+Depends: R (>= 4.1.0), methods
+Imports:
+    dplyr, 
+    fastmatch, 
+    Polychrome, 
+    randomcoloR, 
+    rlang, 
+    scales
+License: MIT + file LICENSE
+Encoding: UTF-8
+URL: https://github.com/ycli1995/easy.utils
+BugReports: https://github.com/ycli1995/easy.utils/issues
+LazyData: true
+RoxygenNote: 7.2.3
