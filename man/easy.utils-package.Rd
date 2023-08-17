@@ -4,9 +4,9 @@
 \name{easy.utils-package}
 \alias{easy.utils}
 \alias{easy.utils-package}
-\title{easy.utils: Frequently Used Functions for easy R programming}
+\title{easy.utils: Frequently Used Functions for Easy R Programming}
 \description{
-Some utillity functions for validation, data manipulation or color palettes. These functions can be helpful to reduce internal codes everywhere in package development.
+Some utility functions for validation, data manipulation or color palettes. These functions can be helpful to reduce internal codes everywhere in package development.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Yuchen Li \email{liyuchen_1995@outlook.com}
+\strong{Maintainer}: Yuchen Li \email{ycli1995@outlook.com}
 
 }
 \keyword{internal}

@@ -11,10 +11,16 @@ fastIntersect(x, y, keep.duplicated = FALSE)
 
 \item{keep.duplicated}{Whether or not to keep duplicated elements in \code{x}}
 }
+\value{
+A vector of a common mode.
+}
 \description{
 A fast version of base::intersect()
 }
 \references{
 \url{https://stackoverflow.com/questions/72631297/speed-up-
 setdiff-intersect-union-operations-on-vectors-in-r}
+}
+\seealso{
+\code{\link[base]{intersect}}
 }

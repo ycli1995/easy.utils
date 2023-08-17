@@ -52,7 +52,7 @@ align with any dimension of \code{reference}.
 }
 }
 \examples{
-\dontrun{
+
 # Get some expression matrices ----
 exp1 <- matrix(0, 10, 20)
 colnames(exp1) <- paste0("cell_", 1:ncol(exp1))
@@ -79,18 +79,29 @@ pca3 <- matrix(0, 20, 5)
 rownames(pca3) <- paste0("c_", 1:nrow(pca3))
 colnames(pca3) <- paste0("PC_", 1:ncol(pca3))
 
-checkAlignedDims(exp2, exp1, c(1, 2))
+# Error: The Dim 2 of exp1 is not aligned with the Dim 2 of exp2!
+try(checkAlignedDims(exp2, exp1, c(1, 2)))
+
 checkAlignedDims(exp3, exp1, c(1, 2))
-checkAlignedDims(exp3, exp1, c(1, 2), withDimnames = TRUE)
+
+# Error: The Dim 1 of exp3 is not aligned with the Dim 1 of exp1!
+try(checkAlignedDims(exp3, exp1, c(1, 2), withDimnames = TRUE))
 
 checkAlignedDims(exp3, exp1, c(NA, 2)) # Don't check the rows of exp3
-checkAlignedDims(exp3, exp1, c(NA, 2), withDimnames = TRUE)
 
-checkAlignedDims(pca1, exp1, c(2, NA)) # Don't check the columns of pca1
+# Error: The Dim 2 of exp3 is not aligned with the Dim 2 of exp1!
+try(checkAlignedDims(exp3, exp1, c(NA, 2), withDimnames = TRUE))
+
+# Error: The Dim 1 of pca1 is not aligned with the Dim 2 of exp1!
+# Don't check the columns of pca1
+try(checkAlignedDims(pca1, exp1, c(2, NA)))
+
 checkAlignedDims(pca2, exp1, c(2, NA))
 checkAlignedDims(pca2, exp1, c(2, NA), withDimnames = TRUE)
 checkAlignedDims(pca3, exp1, c(2, NA))
-checkAlignedDims(pca3, exp1, c(2, NA), withDimnames = TRUE)
-}
+
+# Error: The Dim 1 of pca3 is not aligned with the Dim 2 of exp1!
+try(checkAlignedDims(pca3, exp1, c(2, NA), withDimnames = TRUE))
+
 
 }

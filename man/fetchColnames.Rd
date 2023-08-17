@@ -11,6 +11,11 @@ fetchColnames(object, query)
 
 \item{query}{Column names to check.}
 }
+\value{
+An update \code{query} where only entries existing in 
+\code{colnames(object)} are kept. If no any \code{query} was found, raise an 
+error.
+}
 \description{
 Fetch column names exists in the data object
 }

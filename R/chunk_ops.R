@@ -9,7 +9,10 @@
 #'
 #' @return A 2 x N \code{\link{matrix}} where each column is a chunk. The first
 #' row contains start points, and the second row contains end points.
-#'
+#' 
+#' @references \url{https://github.com/satijalab/seurat/blob/763259d05991d40721d
+#' ee99c9919ec6d4491d15e/R/utilities.R#L1699}
+#' 
 #' @examples
 #' ### Split an index vector with 15273 elements into chunks, each of which has
 #' ### 3000 elements.

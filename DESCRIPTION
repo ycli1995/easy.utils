@@ -1,12 +1,9 @@
 Package: easy.utils
 Type: Package
-Title: Frequently Used Functions for easy R programming
+Title: Frequently Used Functions for Easy R Programming
 Version: 0.0.1
-Authors@R: person(given = "Yuchen", family = "Li", 
-    email = "liyuchen_1995@outlook.com", role = c("aut", "cre"))
-Description: Some utillity functions for validation, data manipulation or color 
-    palettes. These functions can be helpful to reduce internal codes everywhere 
-    in package development.
+Authors@R: person(given = "Yuchen", family = "Li", email = "ycli1995@outlook.com", role = c("aut", "cre"))
+Description: Some utility functions for validation, data manipulation or color palettes. These functions can be helpful to reduce internal codes everywhere in package development.
 Depends: R (>= 4.1.0), methods
 Imports:
     dplyr, 

@@ -6,7 +6,11 @@
 #'
 #' @references \url{https://stackoverflow.com/questions/72631297/speed-up-
 #' setdiff-intersect-union-operations-on-vectors-in-r}
-#'
+#' 
+#' @return A vector of a common mode.
+#' 
+#' @seealso \code{\link[base]{intersect}}
+#' 
 #' @importFrom fastmatch fmatch
 #'
 #' @export

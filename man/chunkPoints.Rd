@@ -25,3 +25,7 @@ can be quite useful when user needs to chunk some operations.
 chunkPoints(15273, 3000)
 
 }
+\references{
+\url{https://github.com/satijalab/seurat/blob/763259d05991d40721d
+ee99c9919ec6d4491d15e/R/utilities.R#L1699}
+}
