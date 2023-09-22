@@ -6,12 +6,16 @@
 #' Generate palettes of distinct colors
 #'
 #' @param n How many colors do we need?
-#' @param ... Extra parameters passed to \code{\link[randomcoloR]{randomColor}},
-#' \code{\link[randomcoloR]{distinctColorPalette}} or
-#' \code{\link[Polychrome]{createPalette}}, depending on \code{random}.
+#' @param ... Extra parameters passed to other functions depending on 
+#' \code{random}:
+#' \itemize{
+#' \item \code{randomColor()} or \code{distinctColorPalette()}. This requires 
+#' manual installation of \pkg{randomcoloR}
+#' \item \code{\link[Polychrome]{createPalette}} from \pkg{Polychrome}
+#' }
 #' @param pal Name of the palette to use. Use \code{names(pal_discrete)} to get
 #' all palette names
-#' @param is.extend When \code{n} > \code{length(pal_discrete\[\[pal\]\])},
+#' @param is.extend When \code{n > length(pal_discrete[[pal]])},
 #' whether or not to extend the colors with
 #' \code{\link[grDevices:colorRamp]{colorRampPalette}}.
 #' @param random Choose a method to generate random colors. Default is "no".
@@ -20,10 +24,17 @@
 #'
 #' @return A vector with \code{n} colors. For \code{setColor}, also set names as
 #' factor levels.
-#'
+#' 
+#' @examples
+#' getDiscreteColors(10)
+#' getDiscreteColors(
+#'   10, 
+#'   random = "Polychrome", 
+#'   seedcolors = scales::hue_pal()(4)
+#' )
+#' 
 #' @importFrom scales hue_pal
 #' @importFrom grDevices colorRampPalette
-#' @importFrom randomcoloR distinctColorPalette randomColor
 #' @importFrom Polychrome createPalette
 #'
 #' @export
@@ -44,10 +55,15 @@ getDiscreteColors <- function(
     if (verbose) {
       message("Use '", random, "' to get discrete colors")
     }
+    if (random %in% c("randomColor", "distinctColorPalette")) {
+      if (!requireNamespace('randomcoloR', quietly = TRUE)) {
+        stop("Please install 'randomcoloR' to use ", random)
+      }
+    }
     return(switch(
       EXPR = random,
-      "randomColor" = randomColor(count = n, ...),
-      "distinctColorPalette" = distinctColorPalette(k = n, ...),
+      "randomColor" = randomcoloR::randomColor(count = n, ...),
+      "distinctColorPalette" = randomcoloR::distinctColorPalette(k = n, ...),
       "Polychrome" = createPalette(N = n, ...)
     ))
   }

@@ -23,7 +23,7 @@ setColor(x, pal = NULL, ...)
 \item{pal}{Name of the palette to use. Use \code{names(pal_discrete)} to get
 all palette names}
 
-\item{is.extend}{When \code{n} > \code{length(pal_discrete\[\[pal\]\])},
+\item{is.extend}{When \code{n > length(pal_discrete[[pal]])},
 whether or not to extend the colors with
 \code{\link[grDevices:colorRamp]{colorRampPalette}}.}
 
@@ -33,9 +33,13 @@ whether or not to extend the colors with
 
 \item{verbose}{Show progress messages.}
 
-\item{...}{Extra parameters passed to \code{\link[randomcoloR]{randomColor}},
-\code{\link[randomcoloR]{distinctColorPalette}} or
-\code{\link[Polychrome]{createPalette}}, depending on \code{random}.}
+\item{...}{Extra parameters passed to other functions depending on 
+\code{random}:
+\itemize{
+\item \code{randomColor()} or \code{distinctColorPalette()}. This requires 
+manual installation of \pkg{randomcoloR}
+\item \code{\link[Polychrome]{createPalette}} from \pkg{Polychrome}
+}}
 
 \item{x}{A factor to use colors.}
 }
@@ -45,4 +49,13 @@ factor levels.
 }
 \description{
 Generate palettes of distinct colors
+}
+\examples{
+getDiscreteColors(10)
+getDiscreteColors(
+  10, 
+  random = "Polychrome", 
+  seedcolors = scales::hue_pal()(4)
+)
+
 }
