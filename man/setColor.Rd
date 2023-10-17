@@ -58,4 +58,8 @@ getDiscreteColors(
   seedcolors = scales::hue_pal()(4)
 )
 
+## Assign colors for a character or factor vector.
+xx <- sample(LETTERS, 10)
+cols <- setColor(xx)
+
 }

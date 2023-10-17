@@ -26,3 +26,12 @@ levels.
 \description{
 Function to make sure that all levels of a factor map to distinct colors.
 }
+\examples{
+## Assign colors for a character or factor vector.
+xx <- sample(LETTERS, 10)
+cols <- setColor(xx)
+
+## Ensure each level in 'xx' get a color
+checkColorMap(xx, cols)
+
+}

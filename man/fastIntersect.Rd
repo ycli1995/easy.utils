@@ -17,6 +17,12 @@ A vector of a common mode.
 \description{
 A fast version of base::intersect()
 }
+\examples{
+x <- sample(LETTERS, 12)
+y <- sample(LETTERS, 12)
+fastIntersect(x, y)
+
+}
 \references{
 \url{https://stackoverflow.com/questions/72631297/speed-up-
 setdiff-intersect-union-operations-on-vectors-in-r}

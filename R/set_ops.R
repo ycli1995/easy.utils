@@ -11,6 +11,11 @@
 #' 
 #' @seealso \code{\link[base]{intersect}}
 #' 
+#' @examples
+#' x <- sample(LETTERS, 12)
+#' y <- sample(LETTERS, 12)
+#' fastIntersect(x, y)
+#' 
 #' @importFrom fastmatch fmatch
 #'
 #' @export

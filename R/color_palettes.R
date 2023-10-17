@@ -121,9 +121,14 @@ getDiscreteColors <- function(
 
 #' @param x A factor to use colors.
 #'
+#' @examples
+#' ## Assign colors for a character or factor vector.
+#' xx <- sample(LETTERS, 10)
+#' cols <- setColor(xx)
+#' 
 #' @export
 setColor <- function(x, pal = NULL, ...) {
-  if (!is.factor(x = )) {
+  if (!is.factor(x = x)) {
     x <- as.factor(x = x)
   }
   color <- getDiscreteColors(n = length(x = levels(x = x)), pal = pal, ...)
@@ -131,6 +136,14 @@ setColor <- function(x, pal = NULL, ...) {
   return(color)
 }
 
+#' @examples
+#' ## Assign colors for a character or factor vector.
+#' xx <- sample(LETTERS, 10)
+#' cols <- setColor(xx)
+#' 
+#' ## Ensure each level in 'xx' get a color
+#' checkColorMap(xx, cols)
+#' 
 #' @export
 #' @rdname checkColorMap
 #' @method checkColorMap default

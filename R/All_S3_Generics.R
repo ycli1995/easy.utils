@@ -16,5 +16,5 @@
 #' @rdname checkColorMap
 #' @export checkColorMap
 checkColorMap <- function(x, colors = NULL, ...) {
-  UseMethod(generic = "CheckColorMap", object = x)
+  UseMethod(generic = "checkColorMap", object = x)
 }
