@@ -4,12 +4,13 @@
 \alias{verboseMsg}
 \title{Simple verbose message wrapper}
 \usage{
-verboseMsg(..., verbose = TRUE)
+verboseMsg(..., verbose = NULL)
 }
 \arguments{
 \item{...}{Pass to \code{\link{message}}}
 
-\item{verbose}{Whether or not to show the message}
+\item{verbose}{Whether or not to show the message. If is \code{NULL}, will 
+search \code{verbose} variable in \code{\link{parent.frame}}.}
 }
 \value{
 Print the progress to console when \code{verbose} is \code{TRUE}.

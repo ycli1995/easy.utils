@@ -70,12 +70,10 @@ getDiscreteColors <- function(
 
   ## Use hue_pal like ggplot2' default
   if (is.null(x = pal)) {
-    if (verbose) {
-      message(
-        "Use 'hue_pal()' that is default for ggplot2 ",
-        "to get discrete colors"
-      )
-    }
+    verboseMsg(
+      "Use 'hue_pal()' that is default for ggplot2 ",
+      "to get discrete colors"
+    )
     return(hue_pal(...)(n))
   }
 
@@ -94,9 +92,7 @@ getDiscreteColors <- function(
   n.select <- n.available[n.available >= n]
   if (length(x = n.select) > 0) {
     n.select <- min(n.select) %>% as.character()
-    if (verbose) {
-      message("getDiscreteColors(", n, "): '", pal, "'->", n.select)
-    }
+    verboseMsg("getDiscreteColors(", n, "): '", pal, "'->", n.select)
     return(head(x = pal_discrete[[pal]][[n.select]], n))
   }
   n.select <- as.character(x = 0)
@@ -110,12 +106,10 @@ getDiscreteColors <- function(
     )
     return(color.use)
   }
-  if (verbose) {
-    message(
-      "Extend colors from default '", pal, "' to ", n,
-      " with 'colorRampPalette()'"
-    )
-  }
+  verboseMsg(
+    "Extend colors from default '", pal, "' to ", n,
+    " with 'colorRampPalette()'"
+  )
   return(colorRampPalette(colors = color.use)(n))
 }
 
