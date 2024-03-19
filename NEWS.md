@@ -1,4 +1,8 @@
 # easy.utils 0.0.3
+## Add
+* Add `verboseMsg`
+
+# easy.utils 0.0.3
 ## Bug fixes
 * Fix bugs in `checkColorMap` and `setColor`
 
