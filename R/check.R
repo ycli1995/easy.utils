@@ -103,43 +103,46 @@ checkAlignedDims <- function(
     ref.name = NULL,
     withDimnames = FALSE
 ) {
-  if (!is.null(x = in.name)) {
-    in.name <- paste0(" '", in.name, "'")
+  if (is.null(incoming)) {
+    return(NULL)
   }
-  if (!is.null(x = ref.name)) {
-    ref.name <- paste0(" '", ref.name, "'")
-  }
-  in.dims <- dim(x = incoming)
-  ref.dims <- dim(x = reference)
-  if (withDimnames) {
-    in.dimns <- dimnames(x = incoming)
-    ref.dimns <- dimnames(x = reference)
-  }
+  in.name <- in.name %||% "incoming"
+  ref.name <- ref.name %||% "reference"
+  in.dims <- dim(incoming)
+  ref.dims <- dim(reference)
   if (!checkSameLength(align.dims, in.dims)) {
     stop(
       "checkAlignedDims failed: \n  ",
-      "The length of 'align.dims' must be equal to ",
-      "the dimension number of input", in.name, "!"
+      "The length of 'align.dims' must be equal to dim(", in.name, ")."
     )
   }
-  for (i in seq_along(along.with = align.dims)) {
-    d <- align.dims[i]
-    if (is.na(x = d)) {
+  if (withDimnames) {
+    in.dimns <- dimnames(incoming)
+    ref.dimns <- dimnames(reference)
+  }
+  fmt <- "%s(%s) must be the same as %s(%s)."
+  if (withDimnames) {
+    dim.func.names <- c("rownames", "colnames")
+  } else {
+    dim.func.names <- c("nrow", "ncol")
+  }
+  for (i in seq_along(align.dims)) {
+    if (is.na(align.dims[i])) {
       next
     }
     chk <- ifelse(
       test = withDimnames,
-      yes = identical(x = in.dimns[[i]], y = ref.dimns[[d]]),
-      no = identical(x = in.dims[i], y = ref.dims[d])
+      yes = identicalFMatch(in.dimns[[i]], ref.dimns[[align.dims[i]]]),
+      no = in.dims[i] == ref.dims[align.dims[i]]
     )
-    if (chk) {
-      next
+    if (!chk) {
+      msg <- sprintf(
+        fmt,
+        dim.func.names[i], in.name,
+        dim.func.names[align.dims[i]], ref.name
+      )
+      stop(msg)
     }
-    stop(
-      "checkAlignedDims failed: \n  ",
-      "The Dim ", i, " of input", in.name, " is not aligned with the Dim ",
-      d, " of reference", ref.name, "!"
-    )
   }
   return(invisible(x = NULL))
 }

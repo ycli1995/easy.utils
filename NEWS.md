@@ -1,4 +1,12 @@
-# easy.utils 0.0.3
+# easy.utils 0.0.5
+## Add
+* Add `identicalNoAttrs` and `identicalFMatch`.
+* Add `validMatDims` and `validMatDimnames`.
+
+## Change
+* Change the implemention for `checkAlignedDims`
+
+# easy.utils 0.0.4
 ## Add
 * Add `verboseMsg`
 
