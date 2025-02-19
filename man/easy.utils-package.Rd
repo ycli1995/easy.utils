@@ -6,7 +6,7 @@
 \alias{easy.utils-package}
 \title{easy.utils: Frequently Used Functions for Easy R Programming}
 \description{
-Some utility functions for validation, data manipulation or color palettes. These functions can be helpful to reduce internal codes everywhere in package development.
+Some utility functions for validation and data manipulation. These functions can be helpful to reduce internal codes everywhere in package development.
 }
 \seealso{
 Useful links:

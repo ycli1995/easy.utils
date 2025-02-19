@@ -1,3 +1,8 @@
+# easy.utils 0.1.0
+## Removal
+* Remove `checkColorMap` and `getDiscreteColors` to keep the dependency of this 
+package clear and simple.
+
 # easy.utils 0.0.5
 ## Add
 * Add `identicalNoAttrs` and `identicalFMatch`.
